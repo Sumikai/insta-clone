@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <article class="col-xs-12 col-md-12">
+    
+      <center>
+        <h1 class="my-4">Instagram-Clone</h1>
+        
+        <br>
+        
+        <% if logged_in? %>
+          <%= link_to "List　", pictures_path, :class => 'btn btn-info' %>
+          <%= link_to "Logout", session_path(current_user.id), method: :delete, :class => 'btn btn-danger' %>
+        <% else %>
+          <%= link_to "Signup", new_user_path, :class => 'btn btn-success' %>
+          <%= link_to "Log-in", new_session_path, :class => 'btn btn-primary' %>
+        <% end %>
+      
+      </center>
+    </article>
+  </div>
+</div>

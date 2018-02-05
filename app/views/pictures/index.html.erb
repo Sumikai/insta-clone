@@ -1,0 +1,39 @@
+<!-- Page Content -->
+<div class="container">
+    <!-- Page Heading -->
+    <h1 class="my-4">Pictures
+      <small>List</small>
+    </h1>
+    
+    <p id="notice"><%= notice %></p>
+    
+    <div class="row">
+    <% @pictures.each do |picture| %>
+      <div class="col-lg-6 portfolio-item">
+        <div class="card h-100">
+          <%= link_to image_tag(picture.image.url), picture %>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= link_to picture.content, picture %>
+            </h4>
+            <p class="card-text">
+              <%= picture.user.name %>
+              ／
+              <%= simple_time(picture.created_at) %>
+            </p>
+            
+            <% if picture.user == current_user %>
+              <%= link_to 'Edit', edit_picture_path(picture) %>
+              |
+              <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <!-- /.row -->
+    
+    <br>
+    <%= link_to 'New Picture', new_picture_path %>
+  </div>

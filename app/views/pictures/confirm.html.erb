@@ -1,0 +1,30 @@
+<div class="container">
+  <h3>投稿しますか？</h3>
+    <%= form_with(model: @picture, local: true) do |form| %>
+      <%= form.hidden_field :content %>
+      <%= form.hidden_field :image %>
+
+      <div class="row">
+      
+        <article class="col-xs-12 col-md-4">Content:</article>
+        <article class="col-xs-12 col-md-8"><%= @picture.content %></article>
+        
+        <article class="col-xs-12 col-md-4">Image:</article>
+        <article class="col-xs-12 col-md-8"><%= image_tag @picture.image.url if @picture.image.present? %></article>
+          <%= hidden_field_tag :"cache[image]",@picture.image.cache_name %>
+        
+      </div>
+      
+      <p><%= form.submit "投稿", :class => 'btn btn-success' %></p>
+    <% end %>
+    
+      <br>
+      <%= form_with(model: @picture, url: new_picture_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field :image %>
+        
+        <%= link_to 'Back', name: 'back' %>
+      <% end %>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-md-offset-3">
+    
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Content:</strong>
+      <%= @picture.content %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @picture.user.name %>
+    </p>
+
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag @picture.image.url %>
+    </p>
+
+    
+      <% if @favorite.present? %>
+        <%= link_to 'UnLike...', favorite_path(picture_id: @picture.id), method: :delete, class: 'btn btn-primary' %>
+      <% else %>
+        <%= link_to 'Like！', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-danger' %>
+      <% end %>
+    <br>
+    
+    <% if @picture.user == current_user %>
+      <%= link_to 'Edit', edit_picture_path(@picture) %>
+    <% end %>
+    |
+    <%= link_to 'Back', pictures_path %>
+    </div>
+  </div>
+</div>

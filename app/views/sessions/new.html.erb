@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <center><h1>Log in</h1>
+    
+      <br>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <br>
+      <%= form_with(scope: :session, url: sessions_path) do |form| %>
+
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+        
+        <br><br>
+        <%= form.submit "Log in", :class => 'btn btn-default' %>
+      <% end %>
+      
+    </center>
+    </div>
+  </div>
+</div>
