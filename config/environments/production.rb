@@ -90,7 +90,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #SendGrid ホストの設定
-  config.action_mailer.default_url_options = { host: 'imageup-task' } #←{ host: 'https://～.herokuapp.com 部分の、～を転記'}
+  config.action_mailer.default_url_options = { host: 'insta-clone01' } #←{ host: 'https://～.herokuapp.com 部分の、～を転記'}
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
