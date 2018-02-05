@@ -12,12 +12,13 @@
       <% end %>
   
       <div class="field">
+        <strong><%= form.label :Image %></strong>
         <%= form.file_field :image, id: :picture_image %></p>
         <%= form.hidden_field :image_cache %>
       </div>
 
       <div class="field">
-        <%= form.label :content %>
+        <strong><%= form.label :content %></strong>
         <%= form.text_area :content, id: :picture_content, :size => "42x3" %>
       </div>
 
