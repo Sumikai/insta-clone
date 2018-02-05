@@ -1,11 +1,12 @@
 <div class="container">
    <div class="row">
     <article class="col-xs-12 col-md-12">
+    
+      <h3>Create？</h3>
       
-    <h3>Create？</h3>
       <%= form_with(model: @picture, local: true) do |form| %>
         <%= form.hidden_field :content %>
-        <%= form.hidden_field :image %>
+        <%= form.hidden_field :image, id: :picture_image %>
       
         <div class="field">
           <p><strong>Image:</strong></p>
@@ -18,17 +19,16 @@
           <p><%= @picture.content %></p>
         </div>
       
-        <p><%= form.submit "投稿", :class => 'btn btn-success' %></p>
+        <%= form.submit "投稿", :class => 'btn btn-success' %>
       <% end %>
-    
-      <br>
       
-        <%= form_with(model: @picture, url: new_picture_path, local: true, method: 'get') do |form| %>
-          <%= form.hidden_field :content %>
-          <%= form.hidden_field :image %>
-        
-          <%= link_to 'Back', name: 'back' %>
-        <% end %>
+      <%= form_with(model: @picture, url: new_picture_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field :image, id: :picture_image %>
+          <%= form.hidden_field :image_cache %>
+      
+        <%= form.submit 'Back', name: 'back', :class => 'btn btn-default' %>
+      <% end %>
     </article>
   </div>
 </div>

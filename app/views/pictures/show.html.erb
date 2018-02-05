@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-12">
+    <article class="col-xs-12 col-md-12">
     
-    <p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
 
-    <p>
-      <strong>Content:</strong>
-      <%= @picture.content %>
-    </p>
+      <p>
+        <strong>Content:</strong>
+        <%= @picture.content %>
+      </p>
 
-    <p>
-      <strong>User:</strong>
-      <%= @picture.user.name %>
-    </p>
+      <p>
+        <strong>User:</strong>
+        <%= @picture.user.name %>
+      </p>
 
-    <p>
-      <strong>Image:</strong><br>
-      <%= image_tag @picture.image.url %>
-    </p>
+      <p>
+        <strong>Image:</strong><br>
+        <%= image_tag @picture.image.url %>
+      </p>
 
     
       <% if @favorite.present? %>
@@ -25,13 +25,13 @@
       <% else %>
         <%= link_to 'Like！', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-danger' %>
       <% end %>
-    <br>
+      <br>
     
-    <% if @picture.user == current_user %>
-      <%= link_to 'Edit', edit_picture_path(@picture) %>
-    <% end %>
-    |
-    <%= link_to 'Back', pictures_path %>
-    </div>
+      <% if @picture.user == current_user %>
+        <%= link_to 'Edit', edit_picture_path(@picture) %>
+      <% end %>
+      |
+      <%= link_to 'Back', pictures_path %>
+    </article>
   </div>
 </div>
